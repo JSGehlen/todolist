@@ -11,7 +11,7 @@ export const useTasks = selectedProject => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', '1sUS7WPiimw5nvArtGRf');
+      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw');
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -33,7 +33,7 @@ export const useTasks = selectedProject => {
       }));
 
       setTasks(
-        selectedProject === 'NEXT_WEEK'
+        selectedProject === 'NEXT_7'
           ? newTasks.filter(
               task =>
                 moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
@@ -57,7 +57,7 @@ export const useProjects = () => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw')
+      .where('userId', '==', '1sUS7WPiimw5nvArtGRf')
       .orderBy('projectId')
       .get()
       .then(snapshot => {
