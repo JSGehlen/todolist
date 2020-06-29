@@ -1,8 +1,7 @@
 import React from 'react';
-import LineIcon from 'react-lineicons';
+import { FaPizzaSlice } from 'react-icons/fa';
 
 export const Header = () => {
-    const x = 1;
     return (
         <header className="header" data-testid="header">
             <nav>
@@ -11,9 +10,11 @@ export const Header = () => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li>+</li>
-                        <li>
-                            <LineIcon size="xs" name="pizza"/>
+                        <li data-testid="quick-add-task-action" className="settings__add">
+                            +
+                        </li>
+                        <li data-testid="dark-mode-action" className="settings__dark-mode">
+                            <FaPizzaSlice />
                         </li>
                     </ul>
                 </div>

@@ -1,39 +1,48 @@
-import React from 'react';
-import LineIcon from 'react-lineicons';
+import React, { useState } from 'react';
+import {
+    FaChevronDown,
+    FaInbox,
+    FaRegCalendarAlt,
+    FaRegCalendar,
+} from 'react-icons/fa';
+import { useSelectedProjectsValue } from '../../context';
 
-export const Sidebar = () => 
-<div className="sidebar" data-testid="sidebar">
-    <ul className="sidebar__generic">
-        <li>
+export const Sidebar = () => { 
+    const {setSelectedProject } = useSelectedProjectsValue;
+    const [ active, setActive ]  = useState('inbox');
+    const [ showProjects, setShowProjects ]  = useState(true);
+
+    return (
+    <div className="sidebar" data-testid="sidebar">
+        <ul className="sidebar__generic">
+            <li data-testid="inbox" className="inbox">
+                <span>
+                    <FaInbox />
+                </span>
+                <span>Inbox</span>
+            </li>
+            <li data-testid="today" className="today">
+                <span>
+                    <FaRegCalendar />
+                </span>
+                <span>Today</span>
+            </li>
+            <li data-testid="next_week" className="next_week">
+                <span>
+                    <FaRegCalendarAlt />
+                </span>
+                <span>Next week</span>
+            </li>
+        </ul>
+        <div className="sidebar__middle">
             <span>
-                <LineIcon name="envelope"/>
+                <FaChevronDown/>
             </span>
-            <span>
-            Inbox
-            </span>
-        </li>
-        <li>
-            <span>
-                <LineIcon name="calendar"/>
-            </span>
-            <span>
-            Today
-            </span>
-        </li>
-        <li>
-            <span>
-                <LineIcon name="calendar"/>
-            </span>
-            <span>
-            Next week
-            </span>
-        </li>
-    </ul>
-    <div className="sidebar__middle">
-        <span>
-        <LineIcon name="chevron-down"/>
-        </span>
-        <h2>Projects</h2>
-        <ul className="sidebar__projects">Projects will be here!</ul>
+            <h2>Projects</h2>
+            <ul className="sidebar__projects">
+                </ul>
+                Projects will be here!
+        </div>
     </div>
-</div>;
+    )
+};
