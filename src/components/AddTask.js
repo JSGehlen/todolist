@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from '../firebase';
-import { useSelectedProjectsValue } from '../context';
+import { useSelectedProjectValue } from '../context';
+import { ProjectOverlay } from './ProjectOverlay';
+import { TaskDate } from './TaskDate';
 
 export const AddTask = ({
     showAddTaskMain = true, 
@@ -17,7 +19,7 @@ export const AddTask = ({
     const [showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [showTaskDate, setShowTaskDate] = useState(false);
 
-    const { selectedProject } = useSelectedProjectsValue();
+    const { selectedProject } = useSelectedProjectValue();
 
     const addTask = () => {
         const projectId = project || selectedProject;
@@ -25,7 +27,7 @@ export const AddTask = ({
 
         if (projectId === 'TODAY') {
             collatedDate = moment().format('DD/MM/YYYY');
-        } else if (projectId === 'NEXT_WEEK') {
+        } else if (projectId === 'NEXT_7') {
             collatedDate = moment()
             .add(7, 'days')
             .format('DD/MM/YYYY');
@@ -88,8 +90,16 @@ export const AddTask = ({
                             </div>
                         </>
                     )}
-                    <p>Project overlay here</p>
-                    <p>TaskDate here</p>
+                    <ProjectOverlay 
+                        setProject={setProject}
+                        showProjectOverlay={showProjectOverlay}
+                        setShowProjectOverlay={setShowProjectOverlay} 
+                    />                    
+                    <TaskDate 
+                        setTaskDate={setTaskDate} 
+                        showTaskDate={showTaskDate} 
+                        setShowTaskDate={setShowTaskDate}
+                    />
                     <input
                         className="add-task__content"
                         data-testid="add-task__content"

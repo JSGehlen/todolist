@@ -5,12 +5,12 @@ import {
     FaRegCalendarAlt,
     FaRegCalendar,
 } from 'react-icons/fa';
-import { useSelectedProjectsValue } from '../../context';
+import { useSelectedProjectValue } from '../../context';
 import { Projects } from '../Projects';
 import { AddProject } from '../AddProject';
 
 export const Sidebar = () => { 
-    const {setSelectedProject } = useSelectedProjectsValue();
+    const {setSelectedProject } = useSelectedProjectValue();
     const [ active, setActive ]  = useState('inbox');
     const [ showProjects, setShowProjects ]  = useState(true);
 
@@ -48,7 +48,7 @@ export const Sidebar = () => {
             className={active === 'next_week' ? 'active' : undefined}
             onClick={() => {
                 setActive('next_week');
-                setSelectedProject('NEXT_WEEK');
+                setSelectedProject('NEXT_7');
             }}
             >
                 <span>

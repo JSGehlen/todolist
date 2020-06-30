@@ -29,7 +29,7 @@ const addProject = () =>
         return (
             <div className="add-project" data-testid="add-project">
                 {show && (
-                    <div classname="add-project__input">
+                    <div className="add-project__input">
                         <input 
                             value={projectName}
                             onChange={e => setProjectName(e.target.value)}
