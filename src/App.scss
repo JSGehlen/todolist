@@ -137,6 +137,10 @@ $generic-bg: #db4c3f;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
         background-color: #282828;
         border-color: transparent;
+        color: #fff;
+    }
+    .add-task__overlay .add-task__main {
+      background-color: #282828;
     }
 }
 
@@ -410,7 +414,7 @@ div {
     }
 
     button {
-      @include btn(50px);
+      @include btn('50px');
     }
     span {
       @include cancel();
@@ -662,7 +666,7 @@ div {
   }
 
   &__submit {
-    @include btn(100px)
+    @include btn('100px')
   }
 
   &__cancel {
