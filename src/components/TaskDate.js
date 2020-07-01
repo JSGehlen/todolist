@@ -18,6 +18,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
             }}
             tabIndex={0}
             role="button"
+            aria-label="Select today as the task date"
           >
             <span>
               <FaSpaceShuttle />
@@ -37,6 +38,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
             }}
             tabIndex={0}
             role="button"
+            aria-label="Select tomorrow as the task date"
           >
             <span>
               <FaSun />
@@ -56,6 +58,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
             }}
             tabIndex={0}
             role="button"
+            aria-label="Select next week as the task date"
           >
             <span>
               <FaRegPaperPlane />
