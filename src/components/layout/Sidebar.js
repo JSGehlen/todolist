@@ -27,6 +27,12 @@ export const Sidebar = () => {
               setActive('inbox');
               setSelectedProject('INBOX');
             }}
+            onKeyDown={() => {
+              setActive('inbox');
+              setSelectedProject('INBOX');
+            }}
+            role="button"
+            tabIndex={0}
           >
             <span>
               <FaInbox />
@@ -44,6 +50,12 @@ export const Sidebar = () => {
               setActive('today');
               setSelectedProject('TODAY');
             }}
+            onKeyDown={() => {
+              setActive('today');
+              setSelectedProject('TODAY');
+            }}
+            role="button"
+            tabIndex={0}
           >
             <span>
               <FaRegCalendar />
@@ -57,11 +69,16 @@ export const Sidebar = () => {
         >
           <div
             data-testid="next_7-action"
-            role="button"
             onClick={() => {
               setActive('next_7');
               setSelectedProject('NEXT_7');
             }}
+            onKeyDown={() => {
+              setActive('next_7');
+              setSelectedProject('NEXT_7');
+            }}
+            role="button"
+            tabIndex={0}
           >
             <span>
               <FaRegCalendarAlt />
@@ -73,6 +90,9 @@ export const Sidebar = () => {
       <div
         className="sidebar__middle"
         onClick={() => setShowProjects(!showProjects)}
+        onKeyDown={() => setShowProjects(!showProjects)}
+        role="button"
+        tabIndex={0}
       >
         <span>
           <FaChevronDown

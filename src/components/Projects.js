@@ -22,6 +22,7 @@ export const Projects = ({ activeValue = null }) => {
       >
         <div
           role="button"
+          tabIndex={0}
           data-testid="project-action"
           onClick={() => {
             setActive(project.projectId);

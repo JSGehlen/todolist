@@ -22,6 +22,12 @@ export const ProjectOverlay = ({
                   setProject(project.projectId);
                   setShowProjectOverlay(false);
                 }}
+                onKeyDown={() => {
+                  setProject(project.projectId);
+                  setShowProjectOverlay(false);
+                }}
+                tabIndex={0}
+                role="button"
               >
                 {project.name}
               </div>

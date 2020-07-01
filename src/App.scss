@@ -212,10 +212,27 @@ div {
 
                 &.settings__add {
                     margin-right: 15px;
+                    font-size: 30px;
+
+                    button {
+                      @include transparent-button();
+                      color: #fff;
+                      cursor: pointer;
+                    }
                 }
-                &.settings__dark-mode svg{
-                    width: 20px;
-                    height: 20px;
+                &.settings__dark-mode {
+                  button {
+                    @include transparent-button();
+                    color: #fff;
+                    cursor: pointer;
+                    display: flex;
+                    
+                    svg {
+                      width: 20px;
+                      height: 20px;
+                    }
+                  }
+
                 }
             }
         }
@@ -372,8 +389,8 @@ div {
           display: -ms-flexbox;
           display: flex;
           -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
 
           svg {
             width: 18px;
@@ -638,6 +655,22 @@ div {
           fill: grey;
         }
       }
+    }
+  }
+}
+
+// project overlay
+.project-overlay {
+  @include box-overlay();
+  background-color: #fff;
+
+  &__list li {
+    @include task-item();
+    padding: 0;
+
+    div:nth-child(1){
+      width: 100%;
+      padding: 10px;
     }
   }
 }

@@ -12,6 +12,12 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().format('DD/MM/YYYY'));
             }}
+            onKeyDown={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().format('DD/MM/YYYY'));
+            }}
+            tabIndex={0}
+            role="button"
           >
             <span>
               <FaSpaceShuttle />
@@ -25,6 +31,12 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
             }}
+            oneKeyDown={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
+            }}
+            tabIndex={0}
+            role="button"
           >
             <span>
               <FaSun />
@@ -38,6 +50,12 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
             }}
+            onKeyDown={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
+            }}
+            tabIndex={0}
+            role="button"
           >
             <span>
               <FaRegPaperPlane />
