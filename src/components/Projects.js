@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelectedProjectValue, useProjectsValue } from '../context';
+import PropTypes from 'prop-types';
 import { IndividualProject } from './IndividualProject';
 
 export const Projects = ({ activeValue = null }) => {
@@ -29,10 +30,20 @@ export const Projects = ({ activeValue = null }) => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
           }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              setActive(project.projectId);
+              setSelectedProject(project.projectId);
+            }
+          }}
         >
           <IndividualProject project={project} />
         </div>
       </li>
     ))
   );
+};
+
+Projects.propTypes = {
+  activeValue: PropTypes.bool,
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useProjectsValue, useSelectedProjectValue } from '../context';
 import { firebase } from '../firebase';
+import PropTypes from 'prop-types';
 
 export const IndividualProject = ({ project }) => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -28,7 +29,9 @@ export const IndividualProject = ({ project }) => {
         className="sidebar__project-delete"
         data-testid="delete-project"
         onClick={() => setShowConfirm(!showConfirm)}
-        onKeyDown={() => setShowConfirm(!showConfirm)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') setShowConfirm(!showConfirm);
+        }}
         tabIndex={0}
         role="button"
         aria-label="Confirm deletion of project"
@@ -46,7 +49,9 @@ export const IndividualProject = ({ project }) => {
               </button>
               <span
                 onClick={() => setShowConfirm(!showConfirm)}
-                onKeyDown={() => setShowConfirm(!showConfirm)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') setShowConfirm(!showConfirm);
+                }}
                 tabIndex={0}
                 role="button"
                 aria-label="Cancel adding project, do not delete"
@@ -59,4 +64,8 @@ export const IndividualProject = ({ project }) => {
       </span>
     </>
   );
+};
+
+IndividualProject.propTypes = {
+  project: PropTypes.object.isRequired,
 };

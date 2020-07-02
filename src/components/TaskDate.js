@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { FaSpaceShuttle, FaSun, FaRegPaperPlane } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
   showTaskDate && (
@@ -12,9 +13,11 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().format('DD/MM/YYYY'));
             }}
-            onKeyDown={() => {
-              setShowTaskDate(false);
-              setTaskDate(moment().format('DD/MM/YYYY'));
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setShowTaskDate(false);
+                setTaskDate(moment().format('DD/MM/YYYY'));
+              }
             }}
             tabIndex={0}
             role="button"
@@ -32,9 +35,11 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
             }}
-            oneKeyDown={() => {
-              setShowTaskDate(false);
-              setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setShowTaskDate(false);
+                setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
+              }
             }}
             tabIndex={0}
             role="button"
@@ -52,9 +57,11 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
             }}
-            onKeyDown={() => {
-              setShowTaskDate(false);
-              setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setShowTaskDate(false);
+                setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
+              }
             }}
             tabIndex={0}
             role="button"
@@ -69,3 +76,9 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
       </ul>
     </div>
   );
+
+  TaskDate.propTypes = {
+    setTaskDate: PropTypes.func.isRequired,
+    showTaskDate: PropTypes.bool.isRequired,
+    setShowTaskDate: PropTypes.func.isRequired,
+  };
