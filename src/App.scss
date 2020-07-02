@@ -133,112 +133,114 @@ $generic-bg: #db4c3f;
   }
 
 .darkmode {
-    .header {
-        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
-        background-color: #282828;
-        border-color: transparent;
-        color: #fff;
-    }
-    .add-task__overlay .add-task__main {
-      background-color: #282828;
-    }
+  header {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+    background-color: #282828;
+    border-color: transparent;
+    color: #fff;
+  }
 }
 
 header {
-    border-bottom: 1px solid #ca2100;
-    background-color: $generic-bg;
-    transition: height 200ms ease-in;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    height: 44px;
-    z-index: 400;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  border-bottom: solid 1px #ca2100;
+  background-color: $generic-bg;
+  -webkit-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  height: 44px;
+  z-index: 400;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
-    @include mq('900px') {
-        padding: 0 10px;
-    }
-}
+  @include mq('900px') {
+    padding: 0 10px;
+  }
 
-nav {
+  nav {
     display: grid;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-column-gap: 0;
-    grid-row-gap: 0;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     max-width: 922px;
     margin: auto;
     height: 44px;
-    
+
     p, li {
-        color: #fff;
+      color: white;
     }
-}
 
-
-div {
-    &.logo {
+    div {
+      &.logo {
         padding-left: 8px;
-        grid-area: 1/1;
+        grid-area: 1 / 1;
 
         img {
-            width: 24px;
+          width: 24px;
         }
-    }
+      }
 
-    &.settings {
-        grid-area: 1/2;
+      &.settings {
+        grid-area: 1 / 2;
         text-align: right;
 
         ul {
-            float: right;
-
-            li {
-                @include va;
-
-                list-style-type: none;
-                cursor: pointer;
-                width: 30px;
-                height: 30px;
-                text-align: center;
-                vertical-align: middle;
-                float: left;
-
-                &:hover {
-                    border-radius: 30px;
-                    background-color: rgba(255,255,255,0.2);
-                }
-
-                &.settings__add {
-                    margin-right: 15px;
-                    font-size: 30px;
-
-                    button {
-                      @include transparent-button();
-                      color: #fff;
-                      cursor: pointer;
-                    }
-                }
-                &.settings__dark-mode {
-                  button {
-                    @include transparent-button();
-                    color: #fff;
-                    cursor: pointer;
-                    display: flex;
-                    
-                    svg {
-                      width: 20px;
-                      height: 20px;
-                    }
-                  }
-
-                }
-            }
+          float: right;
         }
 
+        ul li {
+          @include va;
 
+          list-style-type: none;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          vertical-align: middle;
+          float: left;
+
+          &:hover {
+            border-radius: 3px;
+            background-color: rgba(255,255,255,0.2);
+          }
+
+          &.settings__add {
+            margin-right: 15px;
+            font-size: 30px;
+
+            button {
+              @include transparent-button();
+              color: #fff;
+              cursor: pointer;
+            }
+          }
+
+          &.settings__darkmode {
+            button {
+              @include transparent-button();
+              color: #fff;
+              cursor: pointer;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+          }
+        }
+      }
     }
+  }
 }
 
 .sidebar {
@@ -389,8 +391,8 @@ div {
           display: -ms-flexbox;
           display: flex;
           -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
 
           svg {
             width: 18px;
@@ -444,7 +446,9 @@ div {
 
 .content {
   display: grid;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   grid-template-columns: 1fr auto;
   max-width: 922px;
   margin: auto;
@@ -452,7 +456,7 @@ div {
 
 .tasks {
   width: 656px;
-  background-color: #fff;
+  background-color: white;
   margin-left: 266px;
   border-right: $generic-border;
   min-height: calc(100vh);
@@ -478,32 +482,40 @@ div {
   }
 
   &__list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     line-height: 18px;
-    color: 333;
+    color: #333;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 14px;
     list-style-type: none;
     border-bottom: 1px solid #f0f0f0;
-  }
 
-  .checkbox-holder {
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 16px;
+    .checkbox-holder {
+      margin-right: 20px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      line-height: 16px;
 
-    .checkbox {
-      cursor: pointer;
-      border-color: gray;
-      color: #343434;
-      height: 16px;
-      width: 16px;
-      display: block;
-      border: 1px solid gray;
-      border-radius: 16px;
+      .checkbox {
+        cursor: pointer;
+        border-color: gray;
+        color: #343434;
+        height: 16px;
+        width: 16px;
+        display: block;
+        border: 1px solid gray;
+        border-radius: 16px;
+      }
     }
   }
 }
@@ -614,20 +626,6 @@ div {
   margin-left: 15px;
 }
 
-
-.add-task__plus, .add-project__plus {
-  color: #dd4539;
-  font-size: 18px;
-}
-
-.add-task__text, .add-project__text {
-  display: inline-block;
-  color: #545454;
-  font-size: 14px;
-  margin-left: 15px;
-}
-
-
 .task-date {
   @include box-overlay();
   background-color: #fff;
@@ -664,11 +662,16 @@ div {
   @include box-overlay();
   background-color: #fff;
 
+  @include mq('900px') {
+    width: 200px;
+    right: 0;
+  }
+
   &__list li {
     @include task-item();
     padding: 0;
 
-    div:nth-child(1){
+    div:nth-child(1) {
       width: 100%;
       padding: 10px;
     }
@@ -699,7 +702,7 @@ div {
   }
 
   &__submit {
-    @include btn('100px')
+    @include btn('100px');
   }
 
   &__cancel {
